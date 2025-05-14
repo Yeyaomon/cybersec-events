@@ -88,3 +88,27 @@ body {
 .site-footer p {
   margin: 0;
 }
+
+.filter-bar {
+  margin-bottom: 1rem;
+}
+.filter-bar span {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+.filter-bar a {
+  margin-right: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  text-decoration: none;
+  color: #002147;
+  border: 1px solid #002147;
+  border-radius: 3px;
+}
+.filter-bar a:hover {
+  background: #002147;
+  color: #fff;
+}
+.filter-bar a.active {
+  background: #002147;
+  color: #fff;
+}
