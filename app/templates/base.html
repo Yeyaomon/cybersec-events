@@ -9,10 +9,13 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <h1 class="logo">a href="{{ url_for('main.events') }}">CyberSec Science</a></h1>
+      <h1 class="logo">
+        <a href="{{ url_for('main.events') }}">CyberSec Science</a>
+      </h1>
       <nav class="main-nav">
         <ul>
-          <li><a href="{{ url_for('events') }}">Home</a></li>
+-         <li><a href="{{ url_for('events') }}">Home</a></li>
++         <li><a href="{{ url_for('main.events') }}">Home</a></li>
         </ul>
       </nav>
     </div>
