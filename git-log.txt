@@ -1,0 +1,26 @@
+* e659f62 : Add final project report
+* 8cf91df : Update README with Render deployment URL and feature list
+* b90b18c : Add gunicorn to requirements for Render deployment
+* 7d8b72b : Ensure migrations/versions directory exists for Alembic
+* b4658e8 : Remove dataclasses from requirements since Python ≥3.7 has it built-in
+* ff84b18 : Implement severity filter in events list
+* cdff983 : Style severity filter bar
+* 3f177ba : Add severity filter links to events_list template
+* 3742eee : Add severity filter handling in events view
+* 0644183 : Fix base.html nav link to use main.events endpoint
+* c6fd276 : url_for in template overwritten from main.events to main.event_detail
+* eeaf89b : Add base template, error pages and static CSS
+* c11973f : Ensure app = create_app() is defined at module level
+* 450a661 : defaulted port in run.py
+* 72a0bcf : Add event_detail and event_list
+* cf51d13 : create Data/Response
+* 87b2515 : Stamp database to migrations head
+* 427ca54 : Writes the model of cybersecurity_events
+* 6659be6 : Updating config points to cybersecurity_events.db
+* 052d741 : Add cybersecurity_events.db
+* 4669056 : Set up database migrations
+* 8439f2f : Define Category and Item models
+* acec5d1 : Initialize Flask app factory
+* 0a820ef : Add configuration settings
+* 2b39674 : Add requirements.txt
+* 9ec0d16 : Init project structure and .gitignore
