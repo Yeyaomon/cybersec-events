@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Science Museum{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/science.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="{{ url_for('events') }}">CyberSec Science</a></h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="{{ url_for('events') }}">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-content">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ current_year }} CyberSec Science Museum</p>
+    </div>
+  </footer>
+</body>
+</html>
