@@ -1,12 +1,29 @@
 from . import db
 
-class Category(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(128), unique=True, nullable=False)
-    items = db.relationship('Item', backref='category', lazy=True)
+class Data(db.Model):
+    __tablename__ = 'data'
+    event_id = db.Column('EventID', db.String, primary_key=True)
+    source_ip = db.Column('SourceIP', db.String)
+    destination_ip = db.Column('DestinationIP', db.String)
+    attack_type = db.Column('AttackType', db.String)
+    attack_severity = db.Column('AttackSeverity', db.String)
+    response = db.relationship(
+        'Response', back_populates='data', uselist=False,
+        primaryjoin="Data.event_id==Response.event_id"
+    )
 
-class Item(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256), nullable=False)
-    value = db.Column(db.Float)
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
+class Response(db.Model):
+    __tablename__ = 'response'
+    event_id = db.Column(
+        'EventID', db.String,
+        db.ForeignKey('data.EventID'),
+        primary_key=True
+    )
+    attack_type = db.Column('AttackType', db.String)
+    data_exfiltrated = db.Column('DataExfiltrated', db.String)
+    threat_intelligence = db.Column('ThreatIntelligence', db.Text)
+    response_action = db.Column('ResponseAction', db.String)
+    data = db.relationship(
+        'Data', back_populates='response',
+        primaryjoin="Response.event_id==Data.event_id"
+    )
