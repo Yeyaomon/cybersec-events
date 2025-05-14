@@ -7,8 +7,12 @@ class Data(db.Model):
     destination_ip = db.Column('DestinationIP', db.String)
     attack_type = db.Column('AttackType', db.String)
     attack_severity = db.Column('AttackSeverity', db.String)
+    
+    # One to One response
     response = db.relationship(
-        'Response', back_populates='data', uselist=False,
+        'Response', 
+        back_populates='data', 
+        uselist=False,
         primaryjoin="Data.event_id==Response.event_id"
     )
 
@@ -24,6 +28,7 @@ class Response(db.Model):
     threat_intelligence = db.Column('ThreatIntelligence', db.Text)
     response_action = db.Column('ResponseAction', db.String)
     data = db.relationship(
-        'Data', back_populates='response',
+        'Data',
+        back_populates='response',
         primaryjoin="Response.event_id==Data.event_id"
     )

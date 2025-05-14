@@ -12,6 +12,11 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    with app.app_context():
-        from . import views, models, errors
-        return app
+    # register blueprint and error issues
+    from .views import bp as main_bp
+    app.register_blueprint(main_bp)
+
+    from .errors import bp as errors_bp
+    app.register_blueprint(errors_bp)
+
+    return app
