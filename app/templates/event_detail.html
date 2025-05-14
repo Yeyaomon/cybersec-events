@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}事件 {{ data.event_id }}{% endblock %}
+{% block content %}
+  <h1>Event {{ data.event_id }}</h1>
+  <p>Source IP：{{ data.source_ip }}</p>
+  <p>Destination IP：{{ data.destination_ip }}</p>
+  <p>Attack type：{{ data.attack_type }}</p>
+  <p>Severity：{{ data.attack_severity }}</p>
+
+  {% if resp %}
+    <h2>Responce</h2>
+    <p>Attack type：{{ resp.attack_type }}</p>
+    <p>Exfiltrated?：{{ resp.data_exfiltrated }}</p>
+    <p>Intelligence：{{ resp.threat_intelligence }}</p>
+    <p>Response action：{{ resp.response_action }}</p>
+  {% endif %}
+{% endblock %}
